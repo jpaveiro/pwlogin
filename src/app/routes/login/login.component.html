@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+
+<div class="wrapper">
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="form-container">
+    <h2>Login</h2>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" formControlName="email"/>
+
+      <div class="invalid">
+        @if (formulario.get('email')?.touched && formulario.get('email')?.invalid) {
+          @if (formulario.get('email')?.errors?.['required']) {
+            <small>* E-mail é obrigatório</small>
+          }
+          @if (formulario.get('email')?.errors?.['email']) {
+            <small>* E-mail no formato inválido.</small>
+          }
+        }
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="senha">Senha</label>
+      <input id="senha" type="password" formControlName="senha" />
+
+      @if (formulario.get('senha')?.touched && formulario.get('senha')?.invalid) {
+        @if (formulario.get('senha')?.errors?.['required']) {
+          <small>* Senha é obrigatória</small>
+        }
+        @if (formulario.get('senha')?.errors?.['minlength']) {
+          <small>* Senha deve conter no mínimo 8 caracteres.</small>
+        }
+      }
+    </div>
+
+    <button type="submit" [disabled]="formulario.invalid">Enviar</button>
+  </form>
+</div>

@@ -1,0 +1,71 @@
+<app-navbar></app-navbar>
+
+<div class="wrapper">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+    <h2>Cadastro</h2>
+
+    <div formGroupName="emails" class="form-group">
+      <label for="email">E-mail</label>
+      <input id="email" type="email" formControlName="email" class="form-control" />
+      <div class="error-message">
+        @if (form.get('emails.email')?.touched && form.get('emails.email')?.invalid) {
+            @if (form.get('emails.email')?.errors?.['required']) {
+              <small>* E-mail é obrigatório</small>
+            }
+            @if (form.get('emails.email')?.errors?.['email']) {
+              <small>* E-mail no formato inválido.</small>
+            }
+        }
+      </div>
+      <label for="confirmarEmail">Confirmar e-mail</label>
+      <input id="confirmarEmail" type="email" formControlName="confirmarEmail" class="form-control"/>
+      <div class="error-message">
+        @if (form.get('emails.confirmarEmail')?.touched && form.get('emails.confirmarEmail')?.invalid) {
+            @if (form.get('emails.confirmarEmail')?.errors?.['required']) {
+              <small>* Confirmar e-mail é obrigatório</small>
+            }
+        }
+      </div>
+
+      <div class="error-message">
+        @if (form.get('emails')?.errors?.['emailsDiferentes'] && form.get('emails')?.touched) {
+            <small>* Os e-mails são diferentes</small>
+        }
+      </div>
+    </div>
+
+    <div formGroupName="senhas" class="form-group">
+      <label for="senha">Senha</label>
+      <input id="senha" type="password" formControlName="senha" class="form-control"/>
+      <div class="error-message">
+        @if (form.get('senhas.senha')?.touched && form.get('senhas.senha')?.invalid) {
+            @if (form.get('senhas.senha')?.errors?.['required']) {
+              <small>* Senha é obrigatória</small>
+            }
+            @if (form.get('senhas.senha')?.errors?.['minlength']) {
+              <small>* A senha deve ter pelo menos 8 caracteres</small>
+            }
+        }
+      </div>
+
+      <label for="confirmarSenha">Confirmar senha</label>
+      <input id="confirmarSenha" type="password" formControlName="confirmarSenha" class="form-control" />
+
+      <div class="error-message">
+        @if (form.get('senhas.confirmarSenha')?.touched && form.get('senhas.confirmarSenha')?.invalid) {
+            @if (form.get('senhas.confirmarSenha')?.errors?.['required']) {
+              <small>* Confirmar senha é obrigatório</small>
+            }
+        }
+      </div>
+
+      <div class="error-message">
+        @if (form.get('senhas')?.errors?.['senhasDiferentes'] && form.get('senhas')?.touched) {
+            <small>* As senhas são diferentes</small>
+        }
+      </div>
+    </div>
+
+    <button type="submit" class="submit-button" [disabled]="form.invalid">Cadastrar</button>
+  </form>
+</div>
