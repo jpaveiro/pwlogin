@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  height: 79.3vh;
+  background-color: #f0f2f5;
+}
+
+.welcome-background {
+  background-image: url('/background.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  width: 100%;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.welcome-background .buttons button {
+  padding: 1rem;
+  width: 10rem;
+  height: 3rem;
+  margin: 0 1rem 0 0;
+}
