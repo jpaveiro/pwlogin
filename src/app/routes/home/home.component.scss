@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 18vh 0 0 0;
+}
+
+label {
+  display: block;
+}
+
+button {
+  margin: 1rem 0 0 0;
+  padding: 0.5rem 0.2rem;
+  transition: 0.3s ease;
+  background: #00a7ff;
+  cursor: pointer;
+
+  &:hover {
+      background: #40ff79;
+      border: 2px solid #00a7ff;
+  }
+}
