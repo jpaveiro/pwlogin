@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Outfit", sans-serif;
+    font-size: 19px;
+    background: #fbfbfd;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+label {
+    display: block;
+}
+
+input {
+    border-radius: 10px;
+    font-size: 16px;
+
+    &:focus {
+        box-shadow: 0 0 2px 1px #00a7ff;
+        border-color: #007bff;       
+    }
+}
+
+button {
+    font-family: inherit;
+    font-size: inherit;
+    border-radius: 5px;
+}

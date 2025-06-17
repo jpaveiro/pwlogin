@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+<div class="wrapper">
+    <div class="login-container" 
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmit()"
+    >
+        <form>
+            <fieldset>
+                <legend><h2>Login</h2></legend>
+
+                <!-- ÁREA DE EMAIL -->
+                <label for="email">E-mail</label>
+                <input id="email" 
+                    type="email" 
+                    placeholder="exemplo@dominio.xyz"
+                    formControlName="email"
+                />
+
+                <div class="invalid">
+                    @if (loginForm.get('email')?.touched && loginForm.get('email')?.invalid) {
+                        @if (loginForm.get('email')?.errors?.['required']) {
+                            <small>* E-mail é obrigatório</small>
+                        }
+                        @if (loginForm.get('email')?.errors?.['email']) {
+                            <small>* E-mail no formato inválido.</small>
+                        }
+                    }
+                </div>
+
+                <!-- ÁREA DE SENHA -->
+                <label for="password">Senha</label>
+                <input id="password" 
+                    type="password" 
+                    placeholder="Exemplo12345@"
+                    formControlName="senha"
+                />
+
+                <div class="invalid">
+                    @if (loginForm.get('senha')?.touched && loginForm.get('senha')?.invalid) {
+                        @if (loginForm.get('senha')?.errors?.['required']) {
+                        <small>* Senha é obrigatória</small>
+                        }
+                        
+                        @if (loginForm.get('senha')?.errors?.['minlength']) {
+                        <small>* Senha deve conter no mínimo 8 caracteres.</small>
+                        }
+                    }
+                </div>
+
+                <!-- ÁREA DE ENVIO -->
+                <button type="submit"
+                    [disabled]="loginForm.invalid">Fazer login</button>
+            </fieldset>
+        </form>
+    </div>
+</div>
