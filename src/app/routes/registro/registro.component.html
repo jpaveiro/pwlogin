@@ -1,0 +1,95 @@
+<app-navbar></app-navbar>
+<div class="wrapper">
+    <div class="registro-container" 
+        [formGroup]="registroForm"
+        (ngSubmit)="onSubmit()"
+    >
+        <form>
+            <fieldset>
+                <legend><h2>Registro</h2></legend>
+
+                <!-- ÁREA DE EMAIL -->
+                <div formGroupName="emailGroup">
+                    <label for="email">E-mail</label>
+                    <input id="email" 
+                        type="email" 
+                        placeholder="exemplo@dominio.xyz"
+                        formControlName="email"
+                    />
+
+                    <div class="invalid">
+                        @if (registroForm.get('emailGroup.email')?.touched && registroForm.get('emailGroup.email')?.invalid) {
+                            @if (registroForm.get('emailGroup.email')?.errors?.['required']) {
+                                <small>* E-mail é obrigatório</small>
+                            }
+                            @if (registroForm.get('emailGroup.email')?.errors?.['email']) {
+                                <small>* E-mail no formato inválido.</small>
+                            }
+                        }
+                    </div>
+
+                    <label for="confirmacaoEmail">Confirmar e-mail</label>
+                    <input id="confirmacaoEmail"
+                        type="email"
+                        placeholder="Confirme seu e-mail"
+                        formControlName="confirmacaoEmail"
+                    />
+
+                    <div class="invalid">
+                        @if (registroForm.get('emailGroup.confirmacaoEmail')?.touched 
+                        && registroForm.get('emailGroup.confirmacaoEmail')?.invalid) {
+                            @if (registroForm.get('emailGroup.confirmacaoEmail')?.errors?.['required']) {
+                                <small>* Confirmar e-mail é obrigatório</small>
+                            }
+                        }
+                        @if (registroForm.get('emailGroup')?.errors?.['emailsDiferentes'] 
+                        && registroForm.get('emailGroup')?.touched) {
+                            <small>* Os e-mails são diferentes</small>
+                        }
+                    </div>
+                </div>
+
+                <!-- ÁREA DE SENHA -->
+                <div formGroupName="senhaGroup">
+                    <label for="password">Senha</label>
+                    <input id="password" 
+                        type="password" 
+                        placeholder="Exemplo12345@"
+                        formControlName="senha"
+                    />
+
+                    <div class="invalid">
+                        @if (registroForm.get('senhaGroup.senha')?.touched && registroForm.get('senhaGroup.senha')?.invalid) {
+                            @if (registroForm.get('senhaGroup.senha')?.errors?.['required']) {
+                            <small>* Senha é obrigatória</small>
+                            }
+                            
+                            @if (registroForm.get('senhaGroup.senha')?.errors?.['minlength']) {
+                            <small>* Senha deve conter no mínimo 8 caracteres.</small>
+                            }
+                        }
+                    </div>
+
+                    <label for="confirmacaoSenha">Confirmar senha</label>
+                    <input id="confirmacaoSenha"
+                        type="password"
+                        placeholder="Confirme sua senha"
+                        formControlName="confirmacaoSenha"
+                    />
+                    <div class="invalid">
+                        @if (registroForm.get('senhaGroup.confirmacaoSenha')?.touched && registroForm.get('senhaGroup.confirmacaoSenha')?.invalid) {
+                            @if (registroForm.get('senhaGroup.confirmacaoSenha')?.errors?.['required']) {
+                                <small>* Confirmar senha é obrigatório</small>
+                            }
+                        }
+                    </div>
+                </div>
+
+                <!-- ÁREA DE ENVIO -->
+                <button type="submit"
+                    [disabled]="registroForm.invalid">Registrar-se</button>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<app-rodape></app-rodape>

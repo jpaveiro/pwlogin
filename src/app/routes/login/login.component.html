@@ -49,8 +49,17 @@
 
                 <!-- ÁREA DE ENVIO -->
                 <button type="submit"
-                    [disabled]="loginForm.invalid">Fazer login</button>
+                    [disabled]="loginForm.invalid"
+                >
+                Fazer login
+                </button>
+
+                <!-- ÁREA DE "NÃO TENHO CONTA" -->
+                <div class="idnthaveanaccount">
+                    <small><a routerLink="/registro">Quero me registrar</a></small>
+                </div>
             </fieldset>
         </form>
     </div>
 </div>
+<app-rodape></app-rodape>

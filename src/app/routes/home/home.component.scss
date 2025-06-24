@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .wrapper {
   display: flex;
   justify-content: center;
@@ -5,19 +7,45 @@
   margin: 18vh 0 0 0;
 }
 
-label {
-  display: block;
-}
+.home-container {
+  text-align: center;
+  background-color: #f7f7f7;
+  padding: 3rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 
-button {
-  margin: 1rem 0 0 0;
-  padding: 0.5rem 0.2rem;
-  transition: 0.3s ease;
-  background: #00a7ff;
-  cursor: pointer;
+  h1 {
+    margin-bottom: 1rem;
+    color: #40ff79;
+    text-shadow:
+      -0.5px -0.5px 0 black,
+      0.5px -0.5px 0 black,
+      -0.5px 0.5px 0 black,
+      0.5px 0.5px 0 black;
+  }
 
-  &:hover {
+  p {
+    margin-bottom: 2rem;
+    color: #333;
+    font-size: 1.1rem;
+  }
+
+  .botoes {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  button {
+    width: 100%;
+    padding: 0.7rem 1.5rem;
+    transition: 0.3s ease;
+    background: #e7e7e7;
+    cursor: pointer;
+    
+    &:hover {
       background: #40ff79;
       border: 2px solid #00a7ff;
+    }
   }
 }

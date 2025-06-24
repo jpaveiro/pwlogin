@@ -2,10 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 18vh 0 0 0;
+  margin: 10vh 0 0 0;
 }
 
-.login-container {
+.registro-container {
     width: 100%;
     max-width: 400px;
 
@@ -59,11 +59,6 @@
                 font-size: 0.85rem;
                 color: #dc3545;
             }
-        }
-
-        .idnthaveanaccount {
-            text-align: end;
-            color: #00a7ff;
         }
     }
 }

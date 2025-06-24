@@ -1,0 +1,23 @@
+.wrapper {
+  margin: 10vh 0 0 0;
+  display: flex;
+  justify-content: center;
+}
+
+.sobre-container {
+  width: 40%;
+  line-height: 1.5;
+
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-decoration: underline;
+    color: #40ff79;
+                text-shadow:
+                -0.5px -0.5px 0 black,
+                0.5px -0.5px 0 black,
+                -0.5px 0.5px 0 black,
+                0.5px 0.5px 0 black;
+  }
+}

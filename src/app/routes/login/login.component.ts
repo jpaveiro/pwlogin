@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NavbarComponent } from "../../components/navbar/navbar.component";
+import { RouterModule } from '@angular/router';
+import { RodapeComponent } from "../../components/rodape/rodape.component";
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, NavbarComponent],
+  imports: [ReactiveFormsModule, NavbarComponent, RouterModule, RodapeComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
